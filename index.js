@@ -5,7 +5,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
 
-const PORT = 3001;
+/* const PORT = 3001; */
 
 const server = http.createServer(app);
 
@@ -33,6 +33,12 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
+const { PORT=3000, LOCAL_ADDRESS='0.0.0.0' } = process.env
+server.listen(PORT, LOCAL_ADDRESS, () => {
+  const address = server.address();
+  console.log('server listening at', address);
 });
+
+/* server.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+}); */
