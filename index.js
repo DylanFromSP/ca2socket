@@ -11,7 +11,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "grp2adesca1.herokuapp.com",
+    origin: "https://grp2adesca2v3.netlify.app",
     methods: ["GET", "POST"],
   },
 });
